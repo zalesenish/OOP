@@ -21,3 +21,18 @@ class Mentor:
                 student.grades[course] = [grade]
         else:
             return 'Ошибка'
+
+class Lecturer(Mentor):
+    def __init__(self, name, surname):
+        super().__init__(name, surname)
+        self.grades = {}
+
+    def __str__(self):
+        return f'{self.name} {self.surname}'
+
+class Reviewer(Mentor):
+    def __init__(self, name, surname):
+        super().__init__(name, surname)
+
+    def review_hw(self, student: Student, course: str, grade: int):
+        self.rate_hw(student, course, grade)
